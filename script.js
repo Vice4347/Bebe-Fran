@@ -1,8 +1,7 @@
 /* ==============================
    FECHA OBJETIVO
 ============================== */
-const targetDate = new Date("January 1, 2026 00:00:00").getTime();
-
+const targetDate = new Date(Date.now() + 10000).getTime();
 /* ==============================
    ELEMENTOS
 ============================== */
