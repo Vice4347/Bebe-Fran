@@ -79,8 +79,13 @@ body {
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
   opacity: 0;
-  transform: translateY(30px) rotate(-3deg);
-  transition: opacity 1.2s ease, transform 1.2s ease;
+  transform: scale(0.9) translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.photo.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 
 .photo.show {
