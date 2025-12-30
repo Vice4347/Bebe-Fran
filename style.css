@@ -1,9 +1,22 @@
+/* ==============================
+   GOOGLE FONTS
+============================== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Dancing+Script&display=swap');
+
+
+/* ==============================
+   RESET BÁSICO
+============================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+
+/* ==============================
+   BODY GENERAL
+============================== */
 body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -12,7 +25,12 @@ body {
   text-align: center;
 }
 
-#lock, #content {
+
+/* ==============================
+   SECCIONES PRINCIPALES
+============================== */
+#lock,
+#content {
   padding: 60px 20px;
 }
 
@@ -20,46 +38,73 @@ body {
   display: none;
 }
 
+
+/* ==============================
+   CONTADOR
+============================== */
+#lock h1 {
+  font-size: 3rem;
+}
+
 #countdown {
-  font-size: 2.2em;
+  font-size: 2rem;
   margin-top: 20px;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-top: 40px;
+
+/* ==============================
+   CARTA
+============================== */
+.letter {
+  max-width: 700px;
+  margin: 120px auto 200px;
+  font-family: "Merriweather", serif;
+  font-size: 1.3rem;
+  line-height: 1.9;
+  text-align: center;
 }
 
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+.letter h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
 }
 
-#envelope {
-  width: 200px;
-  margin-bottom: 30px;
-  transition: transform 1.2s ease, opacity 1s ease;
-}
 
+/* ==============================
+   FOTOS – CONTENEDOR
+============================== */
 .photos {
   position: relative;
   max-width: 1200px;
-  margin: 80px auto;
-  min-height: 2400px;
+  margin: 0 auto 200px;
+  min-height: 2600px;
 }
 
+
+/* ==============================
+   FOTOS – BASE
+============================== */
 .photo {
   position: absolute;
   width: 300px;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  transform: rotate(-3deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-/* posiciones individuales */
+.photo.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+
+/* ==============================
+   POSICIONES INDIVIDUALES
+============================== */
 .p1  { top: 0; left: 5%; }
 .p2  { top: 80px; right: 10%; }
 .p3  { top: 180px; left: 15%; }
@@ -89,60 +134,3 @@ body {
 .p22 { top: 1980px; right: 15%; }
 .p23 { top: 2080px; left: 20%; }
 .p24 { top: 2160px; right: 25%; }
-
-
-.photo {
-  position: absolute;
-  width: 180px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  opacity: 0;
-  transform: scale(0.9) translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.photo.visible {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-.photo.show {
-  opacity: 1;
-  transform: translateY(0) rotate(var(--rot));
-}
-
-.photos {
-  position: relative;
-  max-width: 1000px;
-  margin: 80px auto;
-  min-height: 900px;
-}
-
-.photo {
-  position: absolute;
-  width: 180px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  opacity: 1;
-  transition: transform 0.4s ease;
-}
-
-/* Cargar desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Dancing+Script&display=swap');
-
-.letter {
-  font-family: "Merriweather", serif;
-  font-size: 1.3rem;
-  line-height: 1.9;
-}
-
-.letter h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-
-
-#countdown {
-  font-size: 2rem;
-}
