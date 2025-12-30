@@ -25,3 +25,10 @@ setInterval(() => {
     minutes + " min " +
     seconds + " seg";
 }, 1000);
+
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".photo").forEach((photo, i) => {
+    photo.style.transform =
+      "translateY(" + (window.scrollY * 0.02 * (i % 2 === 0 ? 1 : -1)) + "px)";
+  });
+});
