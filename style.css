@@ -51,6 +51,16 @@ body {
   margin-top: 20px;
 }
 
+/* ==============================
+   IMAGEN SOBRE (INICIAL)
+============================== */
+#envelope {
+  width: 200px;
+  max-width: 70%;
+  margin-bottom: 30px;
+  transition: transform 1.2s ease, opacity 1s ease;
+}
+
 
 /* ==============================
    CARTA
