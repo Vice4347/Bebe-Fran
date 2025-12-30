@@ -126,3 +126,16 @@ body {
   opacity: 1;
   transition: transform 0.4s ease;
 }
+
+.letter p {
+  font-size: 1.4rem;
+  line-height: 1.9;
+}
+
+#lock h1 {
+  font-size: 3rem;
+}
+
+#countdown {
+  font-size: 2rem;
+}
