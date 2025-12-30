@@ -88,7 +88,7 @@ body {
   position: relative;
   max-width: 1200px;
   margin: 0 auto 200px;
-  min-height: 2600px;
+  min-height: 3000px;
 }
 
 
@@ -109,6 +109,10 @@ body {
 .photo.visible {
   opacity: 1;
   transform: scale(1) translateY(0);
+}
+
+.photo {
+  margin-bottom: 80px;
 }
 
 
