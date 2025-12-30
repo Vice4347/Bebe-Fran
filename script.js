@@ -1,16 +1,42 @@
+/* ==============================
+   FECHA OBJETIVO
+============================== */
 const targetDate = new Date("January 1, 2026 00:00:00").getTime();
 
+/* ==============================
+   ELEMENTOS
+============================== */
 const countdownEl = document.getElementById("countdown");
 const lock = document.getElementById("lock");
 const content = document.getElementById("content");
+const photos = document.querySelectorAll(".photo");
 
-setInterval(() => {
+/* ==============================
+   OCULTAR CONTENIDO AL INICIO
+============================== */
+content.style.display = "none";
+
+/* ==============================
+   CONTADOR
+============================== */
+const timer = setInterval(() => {
   const now = new Date().getTime();
   const distance = targetDate - now;
 
   if (distance <= 0) {
+    clearInterval(timer);
+
+    // Ocultar bloqueo
     lock.style.display = "none";
-    content.classList.remove("hidden");
+
+    // Mostrar contenido
+    content.style.display = "block";
+
+    // Activar animación de fotos
+    photos.forEach(photo => {
+      photo.classList.add("visible");
+    });
+
     return;
   }
 
@@ -20,21 +46,23 @@ setInterval(() => {
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   countdownEl.innerHTML =
-    days + " días<br>" +
-    hours + " horas " +
-    minutes + " min " +
-    seconds + " seg";
+    `${days} días<br>${hours} horas ${minutes} min ${seconds} seg`;
 }, 1000);
 
+/* ==============================
+   ANIMACIÓN SUAVE EN SCROLL
+============================== */
 window.addEventListener("scroll", () => {
-  document.querySelectorAll(".photo").forEach((photo, i) => {
+  photos.forEach((photo, i) => {
+    const direction = i % 2 === 0 ? 1 : -1;
     photo.style.transform =
-      "translateY(" + (window.scrollY * 0.02 * (i % 2 === 0 ? 1 : -1)) + "px)";
+      `translateY(${window.scrollY * 0.02 * direction}px)`;
   });
 });
 
-const photos = document.querySelectorAll(".photo");
-
+/* ==============================
+   APARICIÓN PROGRESIVA (SCROLL)
+============================== */
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
@@ -43,9 +71,7 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  {
-    threshold: 0.2
-  }
+  { threshold: 0.2 }
 );
 
 photos.forEach(photo => observer.observe(photo));
