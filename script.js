@@ -47,3 +47,10 @@ setInterval(function () {
   font-size: 1.1em;
   text-align: left;
 }
+
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".photo").forEach((photo, i) => {
+    const offset = window.scrollY * 0.02 * (i % 2 === 0 ? 1 : -1);
+    photo.style.transform = `translateY(${offset}px) rotate(${getComputedStyle(photo).getPropertyValue('--rot')})`;
+  });
+});
