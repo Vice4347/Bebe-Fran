@@ -1,39 +1,27 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #ff6f61, #6a5acd, #20b2aa);
-  min-height: 100vh;
-  color: white;
-  text-align: center;
-}
+const targetDate = new Date("January 1, 2026 00:00:00").getTime();
 
-#lock, #content {
-  padding: 60px 20px;
-}
+const countdownEl = document.getElementById("countdown");
+const lock = document.getElementById("lock");
+const content = document.getElementById("content");
 
-.hidden {
-  display: none;
-}
+const timer = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
 
-#countdown {
-  font-size: 2.2em;
-  margin-top: 20px;
-}
+  if (distance <= 0) {
+    clearInterval(timer);
+    lock.style.display = "none";
+    content.classList.remove("hidden");
+    return;
+  }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-top: 40px;
-}
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  transition: transform 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
+  countdownEl.innerHTML = `
+    ${days} días<br>
+    ${hours} horas ${minutes} min ${seconds} seg
+  `;
+}, 1000);
