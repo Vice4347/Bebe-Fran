@@ -9,10 +9,21 @@ setInterval(function () {
   const distance = targetDate - now;
 
   if (distance <= 0) {
+  clearInterval(timer);
+
+  const envelope = document.getElementById("envelope");
+
+  envelope.style.transform = "scale(1.2) translateY(-20px)";
+  envelope.style.opacity = "0";
+
+  setTimeout(() => {
     lock.style.display = "none";
     content.classList.remove("hidden");
-    return;
-  }
+  }, 1200);
+
+  return;
+}
+
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
