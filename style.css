@@ -116,3 +116,7 @@ body {
   margin-bottom: 120px;
   opacity: 0.9;
 }
+
+#content {
+  display: none;
+}
