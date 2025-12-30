@@ -1,22 +1,13 @@
-/* ==============================
-   GOOGLE FONTS
-============================== */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Dancing+Script&display=swap');
 
-
-/* ==============================
-   RESET BÁSICO
-============================== */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-/* ==============================
-   BODY GENERAL
-============================== */
+/* BODY */
 body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -25,145 +16,103 @@ body {
   text-align: center;
 }
 
-
-/* ==============================
-   SECCIONES PRINCIPALES
-============================== */
+/* SECCIONES */
 #lock,
 #content {
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
-.hidden {
-  display: none;
+/* BLOQUE BLOQUEADO */
+#envelope {
+  width: 200px;
+  margin-bottom: 30px;
 }
 
-
-/* ==============================
-   CONTADOR
-============================== */
-#lock h1 {
-  font-size: 3rem;
+.lock-text {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
 }
 
 #countdown {
-  font-size: 2rem;
-  margin-top: 20px;
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-/* ==============================
-   IMAGEN SOBRE (INICIAL)
-============================== */
-#envelope {
-  width: 200px;
-  max-width: 70%;
-  margin-bottom: 30px;
-  transition: transform 1.2s ease, opacity 1s ease;
-}
-
-
-/* ==============================
-   CARTA
-============================== */
-.letter {
-  max-width: 700px;
-  margin: 120px auto 200px;
-  font-family: "Merriweather", serif;
-  font-size: 1.3rem;
-  line-height: 1.9;
-  text-align: center;
-}
-
-.letter h2 {
+/* FRASE INICIAL */
+.intro-text {
   font-family: "Dancing Script", cursive;
-  font-size: 2.4rem;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 80px;
 }
 
+/* CARTA */
+.letter {
+  max-width: 750px;
+  margin: 0 auto 200px;
+  font-family: "Merriweather", serif;
+  font-size: 1.4rem;
+  line-height: 2;
+}
 
-/* ==============================
-   FOTOS – CONTENEDOR
-============================== */
+/* FOTOS */
 .photos {
   position: relative;
   max-width: 1200px;
-  margin: 0 auto 200px;
-  min-height: 3400px;
+  margin: 0 auto 150px;
+  min-height: 3000px;
 }
 
-
-/* ==============================
-   FOTOS – BASE
-============================== */
 .photo {
   position: absolute;
-  width: 300px;
+  width: 280px;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
   opacity: 0;
-  transform: scale(0.9) translateY(calc(30px + var(--offset, 0px)));
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(40px) scale(0.95);
+  transition: all 1s ease;
 }
 
 .photo.visible {
   opacity: 1;
-  transform: scale(1) translateY(var(--offset, 0px));
+  transform: translateY(0) scale(1);
 }
 
+/* POSICIONES (SEPARADAS VERTICALMENTE) */
+.p1 { top: 0; left: 5%; }
+.p2 { top: 140px; right: 10%; }
+.p3 { top: 280px; left: 15%; }
+.p4 { top: 420px; right: 20%; }
 
-/* ==============================
-   POSICIONES INDIVIDUALES
-============================== */
-.p1  { top: 0; left: 5%; }
-.p2  { top: 80px; right: 10%; --offset: 40px; }
-.p3  { top: 180px; left: 15%; }
-.p4  { top: 260px; right: 20%; --offset: 80px; }
+.p5 { top: 600px; left: 8%; }
+.p6 { top: 740px; right: 12%; }
+.p7 { top: 880px; left: 18%; }
+.p8 { top: 1020px; right: 25%; }
 
-.p5  { top: 380px; left: 8%; }
-.p6  { top: 460px; right: 12%; --offset: 120px; }
-.p7  { top: 560px; left: 18%; }
-.p8  { top: 640px; right: 25%; --offset: 160px; }
+.p9 { top: 1180px; left: 5%; }
+.p10 { top: 1320px; right: 10%; }
+.p11 { top: 1460px; left: 15%; }
+.p12 { top: 1600px; right: 20%; }
 
-.p9  { top: 760px; left: 5%; }
-.p10 { top: 840px; right: 10%; --offset: 40px; }
-.p11 { top: 940px; left: 15%; }
-.p12 { top: 1020px; right: 20%; --offset: 80px; }
+.p13 { top: 1760px; left: 10%; }
+.p14 { top: 1900px; right: 15%; }
+.p15 { top: 2040px; left: 20%; }
+.p16 { top: 2180px; right: 25%; }
 
-.p13 { top: 1140px; left: 10%; }
-.p14 { top: 1220px; right: 15%; --offset: 120px; }
-.p15 { top: 1320px; left: 20%; }
-.p16 { top: 1400px; right: 25%; --offset: 160px; }
+.p17 { top: 2340px; left: 5%; }
+.p18 { top: 2480px; right: 10%; }
+.p19 { top: 2620px; left: 15%; }
+.p20 { top: 2760px; right: 20%; }
 
-.p17 { top: 1520px; left: 5%; }
-.p18 { top: 1600px; right: 10%; --offset: 40px; }
-.p19 { top: 1700px; left: 15%; }
-.p20 { top: 1780px; right: 20%; --offset: 80px; }
+.p21 { top: 2920px; left: 10%; }
+.p22 { top: 3060px; right: 15%; }
+.p23 { top: 3200px; left: 20%; }
+.p24 { top: 3340px; right: 25%; }
 
-.p21 { top: 1900px; left: 10%; }
-.p22 { top: 1980px; right: 15%; --offset: 120px; }
-.p23 { top: 2080px; left: 20%; }
-.p24 { top: 2160px; right: 25%; --offset: 160px; }
-
-/* ==============================
-   FRASE INICIAL (ANTES DE LA CARTA)
-============================== */
-#content > p:first-of-type,
-#content > h1:first-of-type,
-#content > h2:first-of-type {
-  font-family: "Dancing Script", cursive;
-  font-size: 2.4rem;
-  margin-bottom: 50px;
-  opacity: 0.9;
-}
-
-/* ==============================
-   FRASE FINAL (DEBAJO DE LAS FOTOS)
-============================== */
+/* FRASE FINAL */
 .photos-end-text {
-  margin-top: 2400px;
   font-family: "Dancing Script", cursive;
-  font-size: 2rem;
-  opacity: 0.85;
-  text-align: center;
+  font-size: 2.3rem;
+  margin-top: 100px;
+  margin-bottom: 120px;
+  opacity: 0.9;
 }
