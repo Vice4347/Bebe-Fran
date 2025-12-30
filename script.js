@@ -54,3 +54,11 @@ window.addEventListener("scroll", () => {
     photo.style.transform = `translateY(${offset}px) rotate(${getComputedStyle(photo).getPropertyValue('--rot')})`;
   });
 });
+
+content.classList.remove("hidden");
+
+document.querySelectorAll(".photo").forEach((img, i) => {
+  setTimeout(() => {
+    img.classList.add("show");
+  }, i * 150);
+});
