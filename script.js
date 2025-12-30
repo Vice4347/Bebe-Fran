@@ -1,24 +1,13 @@
-/* ==============================
-   FECHA OBJETIVO
-============================== */
 const targetDate = new Date("January 1, 2026 00:00:00").getTime();
 
-/* ==============================
-   ELEMENTOS
-============================== */
 const countdownEl = document.getElementById("countdown");
 const lock = document.getElementById("lock");
 const content = document.getElementById("content");
 const photos = document.querySelectorAll(".photo");
+const animatedText = document.querySelectorAll(".animate-text");
 
-/* ==============================
-   OCULTAR CONTENIDO AL INICIO
-============================== */
 content.style.display = "none";
 
-/* ==============================
-   CONTADOR
-============================== */
 const timer = setInterval(() => {
   const now = new Date().getTime();
   const distance = targetDate - now;
@@ -26,21 +15,30 @@ const timer = setInterval(() => {
   if (distance <= 0) {
     clearInterval(timer);
 
-    // Ocultar bloqueo
-    lock.style.display = "none";
+    /* 1️⃣ Fade out contador */
+    lock.classList.add("fade-out");
 
-    // Mostrar contenido
-    content.style.display = "block";
+    setTimeout(() => {
+      lock.style.display = "none";
 
-    // Activar animación de fotos
-    photos.forEach(photo => {
-      photo.classList.add("visible");
-    });
+      /* 2️⃣ Mostrar contenido */
+      content.style.display = "block";
 
-     document.querySelectorAll(".animate-text").forEach(el => {
-  el.classList.add("visible");
-});
+      requestAnimationFrame(() => {
+        content.classList.add("show");
+      });
 
+      /* 3️⃣ Texto entra primero */
+      setTimeout(() => {
+        animatedText.forEach(el => el.classList.add("visible"));
+      }, 400);
+
+      /* 4️⃣ Fotos entran después */
+      setTimeout(() => {
+        photos.forEach(photo => photo.classList.add("visible"));
+      }, 900);
+
+    }, 1200);
 
     return;
   }
@@ -54,29 +52,11 @@ const timer = setInterval(() => {
     `${days} días<br>${hours} horas ${minutes} min ${seconds} seg`;
 }, 1000);
 
-/* ==============================
-   ANIMACIÓN SUAVE EN SCROLL
-============================== */
+/* Movimiento suave de fotos en scroll */
 window.addEventListener("scroll", () => {
   photos.forEach((photo, i) => {
-    const direction = i % 2 === 0 ? 1 : -1;
+    const dir = i % 2 === 0 ? 1 : -1;
     photo.style.transform =
-      `translateY(${window.scrollY * 0.02 * direction}px)`;
+      `translateY(${window.scrollY * 0.02 * dir}px)`;
   });
 });
-
-/* ==============================
-   APARICIÓN PROGRESIVA (SCROLL)
-============================== */
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-photos.forEach(photo => observer.observe(photo));
