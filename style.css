@@ -87,3 +87,19 @@ body {
   opacity: 1;
   transform: translateY(0) rotate(var(--rot));
 }
+
+.photos {
+  position: relative;
+  max-width: 1000px;
+  margin: 80px auto;
+  min-height: 900px;
+}
+
+.photo {
+  position: absolute;
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  opacity: 1;
+  transition: transform 0.4s ease;
+}
