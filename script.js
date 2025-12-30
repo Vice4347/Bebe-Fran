@@ -36,3 +36,14 @@ setInterval(function () {
     minutes + " min " +
     seconds + " seg";
 }, 1000);
+
+.letter {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.15);
+  padding: 30px;
+  border-radius: 12px;
+  line-height: 1.6;
+  font-size: 1.1em;
+  text-align: left;
+}
