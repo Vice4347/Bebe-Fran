@@ -43,3 +43,30 @@ body {
   margin-bottom: 30px;
   transition: transform 1.2s ease, opacity 1s ease;
 }
+
+.photos {
+  position: relative;
+  max-width: 1000px;
+  margin: 60px auto;
+}
+
+.photo {
+  position: absolute;
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: rotate(-3deg);
+}
+
+/* posiciones individuales */
+.p1  { top: -40px; left: -40px; transform: rotate(-6deg); }
+.p2  { top: 80px; right: -30px; transform: rotate(5deg); }
+.p3  { top: 220px; left: -60px; transform: rotate(3deg); }
+.p4  { top: 360px; right: -50px; transform: rotate(-4deg); }
+.p5  { top: 520px; left: -30px; transform: rotate(6deg); }
+
+.p6  { top: 40px; right: 180px; transform: rotate(-5deg); }
+.p7  { top: 260px; left: 200px; transform: rotate(4deg); }
+.p8  { top: 420px; right: 220px; transform: rotate(-3deg); }
+.p9  { top: 600px; left: 150px; transform: rotate(5deg); }
+.p10 { top: 740px; right: 100px; transform: rotate(-6deg); }
