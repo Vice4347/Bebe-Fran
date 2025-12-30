@@ -1,1 +1,39 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #ff6f61, #6a5acd, #20b2aa);
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+}
 
+#lock, #content {
+  padding: 60px 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#countdown {
+  font-size: 2.2em;
+  margin-top: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
