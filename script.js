@@ -1,7 +1,7 @@
 /* ==============================
    FECHA OBJETIVO
 ============================== */
-const targetDate = new Date(Date.now() + 10000).getTime();
+const targetDate = new Date(Date.now() + 500000).getTime();
 /* ==============================
    ELEMENTOS
 ============================== */
