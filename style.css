@@ -134,3 +134,24 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ==============================
+   TRANSICIÓN SUAVE ENTRE BLOQUES
+============================== */
+#lock {
+  transition: opacity 1.2s ease;
+}
+
+#lock.fade-out {
+  opacity: 0;
+}
+
+/* Contenido entra suavemente */
+#content {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+#content.show {
+  opacity: 1;
+}
