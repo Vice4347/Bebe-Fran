@@ -46,9 +46,9 @@ body {
 
 .photos {
   position: relative;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 80px auto;
-  min-height: 900px;
+  min-height: 2400px;
 }
 
 .photo {
@@ -60,17 +60,35 @@ body {
 }
 
 /* posiciones individuales */
-.p1  { top: -40px; left: -40px; --rot: -6deg; }
-.p2  { top: 80px; right: -30px; --rot: 5deg; }
-.p3  { top: 220px; left: -60px; --rot: 3deg; }
-.p4  { top: 360px; right: -50px; --rot: -4deg; }
-.p5  { top: 520px; left: -30px; --rot: 6deg; }
+.p1  { top: 0; left: 5%; }
+.p2  { top: 80px; right: 10%; }
+.p3  { top: 180px; left: 15%; }
+.p4  { top: 260px; right: 20%; }
 
-.p6  { top: 40px; right: 180px; --rot: -5deg; }
-.p7  { top: 260px; left: 200px; --rot: 4deg; }
-.p8  { top: 420px; right: 220px; --rot: -3deg; }
-.p9  { top: 600px; left: 150px; --rot: 5deg; }
-.p10 { top: 740px; right: 100px; --rot: -6deg; }
+.p5  { top: 380px; left: 8%; }
+.p6  { top: 460px; right: 12%; }
+.p7  { top: 560px; left: 18%; }
+.p8  { top: 640px; right: 25%; }
+
+.p9  { top: 760px; left: 5%; }
+.p10 { top: 840px; right: 10%; }
+.p11 { top: 940px; left: 15%; }
+.p12 { top: 1020px; right: 20%; }
+
+.p13 { top: 1140px; left: 10%; }
+.p14 { top: 1220px; right: 15%; }
+.p15 { top: 1320px; left: 20%; }
+.p16 { top: 1400px; right: 25%; }
+
+.p17 { top: 1520px; left: 5%; }
+.p18 { top: 1600px; right: 10%; }
+.p19 { top: 1700px; left: 15%; }
+.p20 { top: 1780px; right: 20%; }
+
+.p21 { top: 1900px; left: 10%; }
+.p22 { top: 1980px; right: 15%; }
+.p23 { top: 2080px; left: 20%; }
+.p24 { top: 2160px; right: 25%; }
 
 
 .photo {
