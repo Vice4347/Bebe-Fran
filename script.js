@@ -37,6 +37,11 @@ const timer = setInterval(() => {
       photo.classList.add("visible");
     });
 
+     document.querySelectorAll(".animate-text").forEach(el => {
+  el.classList.add("visible");
+});
+
+
     return;
   }
 
