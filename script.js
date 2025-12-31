@@ -13,10 +13,19 @@ function updateCountdown() {
   const distance = targetDate - now;
 
   if (distance <= 0) {
-    lock.style.display = "none";
-    content.classList.remove("hidden");
-    clearInterval(timer);
-    return;
+    lock.classList.add("fade-out");
+
+setTimeout(() => {
+  lock.style.display = "none";
+  content.style.display = "block";
+
+  requestAnimationFrame(() => {
+    content.classList.add("show");
+  });
+}, 1200);
+
+clearInterval(timer);
+return;
   }
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
