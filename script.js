@@ -1,7 +1,7 @@
 /* ===============================
    CUENTA REGRESIVA (10 SEGUNDOS)
 =============================== */
-const targetDate = new Date("January 1, 2026 00:00:00").getTime();
+const targetDate = new Date().getTime() + 10 * 1000;
 
 const countdownEl = document.getElementById("countdown");
 const lock = document.getElementById("lock");
