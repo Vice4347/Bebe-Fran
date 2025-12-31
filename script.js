@@ -1,7 +1,7 @@
 // ==============================
 // CONTADOR
 // ==============================
-const targetDate = Date.now() + 10000; // 10 segundos
+const targetDate = new Date("January 1, 2026 00:00:00").getTime();
 
 const countdownEl = document.getElementById("countdown");
 const lock = document.getElementById("lock");
