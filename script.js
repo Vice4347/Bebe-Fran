@@ -66,3 +66,17 @@ playBtn.addEventListener("click", () => {
     playBtn.textContent = "▶ Reproducir música";
   }
 });
+
+/* ===== REPRODUCTOR DE MÚSICA ===== */
+const playBtn = document.getElementById("playBtn");
+const music = document.getElementById("music");
+
+playBtn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    playBtn.textContent = "⏸ Pausar canción";
+  } else {
+    music.pause();
+    playBtn.textContent = "▶ Reproducir canción";
+  }
+});
