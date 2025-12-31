@@ -1,14 +1,10 @@
 const targetDate = new Date("January 1, 2026 00:00:00").getTime();
 
-
-
 const countdownEl = document.getElementById("countdown");
 const lock = document.getElementById("lock");
 const content = document.getElementById("content");
 const photos = document.querySelectorAll(".photo");
 const animatedText = document.querySelectorAll(".animate-text");
-
-content.style.display = "none";
 
 const timer = setInterval(() => {
   const now = new Date().getTime();
@@ -17,25 +13,20 @@ const timer = setInterval(() => {
   if (distance <= 0) {
     clearInterval(timer);
 
-    /* 1️⃣ Fade out contador */
     lock.classList.add("fade-out");
 
     setTimeout(() => {
       lock.style.display = "none";
-
-      /* 2️⃣ Mostrar contenido */
       content.style.display = "block";
 
       requestAnimationFrame(() => {
         content.classList.add("show");
       });
 
-      /* 3️⃣ Texto entra primero */
       setTimeout(() => {
         animatedText.forEach(el => el.classList.add("visible"));
       }, 400);
 
-      /* 4️⃣ Fotos entran después */
       setTimeout(() => {
         photos.forEach(photo => photo.classList.add("visible"));
       }, 900);
@@ -54,7 +45,7 @@ const timer = setInterval(() => {
     `${days} días<br>${hours} horas ${minutes} min ${seconds} seg`;
 }, 1000);
 
-/* Movimiento suave de fotos en scroll */
+/* Movimiento suave al hacer scroll */
 window.addEventListener("scroll", () => {
   photos.forEach((photo, i) => {
     const dir = i % 2 === 0 ? 1 : -1;
