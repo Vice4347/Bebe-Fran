@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Dancing+Script&display=swap');
 
-/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* BODY */
 body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
@@ -16,13 +14,16 @@ body {
   text-align: center;
 }
 
-/* SECCIONES */
-#lock,
-#content {
-  padding: 80px 20px;
+/* BLOQUE BLOQUEADO */
+#lock {
+  padding: 100px 20px;
+  transition: opacity 1.2s ease;
 }
 
-/* BLOQUE BLOQUEADO */
+#lock.fade-out {
+  opacity: 0;
+}
+
 #envelope {
   width: 200px;
   margin-bottom: 30px;
@@ -38,20 +39,41 @@ body {
   font-weight: bold;
 }
 
-/* FRASE INICIAL */
+/* CONTENIDO */
+#content {
+  display: none;
+  opacity: 0;
+  padding: 80px 20px;
+  transition: opacity 1.5s ease;
+}
+
+#content.show {
+  opacity: 1;
+}
+
+/* TEXTO */
 .intro-text {
   font-family: "Dancing Script", cursive;
   font-size: 3rem;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
-/* CARTA */
 .letter {
   max-width: 750px;
-  margin: 0 auto 200px;
+  margin: 40px auto 180px;
   font-family: "Merriweather", serif;
   font-size: 1.4rem;
   line-height: 2;
+}
+
+/* REPRODUCTOR */
+.music-player {
+  margin-bottom: 60px;
+}
+
+.music-player audio {
+  width: 220px;
+  opacity: 0.85;
 }
 
 /* FOTOS */
@@ -59,7 +81,7 @@ body {
   position: relative;
   max-width: 1200px;
   margin: 0 auto 150px;
-  min-height: 3600px;
+  min-height: 4200px;
 }
 
 .photo {
@@ -69,7 +91,7 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
   opacity: 0;
   transform: translateY(40px) scale(0.95);
-  transition: all 1s ease;
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .photo.visible {
@@ -77,53 +99,44 @@ body {
   transform: translateY(0) scale(1);
 }
 
-/* POSICIONES (SEPARADAS VERTICALMENTE) */
-.p1 { top: 0; left: 5%; }
-.p2 { top: 140px; right: 10%; }
-.p3 { top: 280px; left: 15%; }
-.p4 { top: 420px; right: 20%; }
-
-.p5 { top: 600px; left: 8%; }
-.p6 { top: 740px; right: 12%; }
-.p7 { top: 880px; left: 18%; }
-.p8 { top: 1020px; right: 25%; }
-
-.p9 { top: 1180px; left: 5%; }
-.p10 { top: 1320px; right: 10%; }
-.p11 { top: 1460px; left: 15%; }
-.p12 { top: 1600px; right: 20%; }
-
-.p13 { top: 1760px; left: 10%; }
-.p14 { top: 1900px; right: 15%; }
-.p15 { top: 2040px; left: 20%; }
-.p16 { top: 2180px; right: 25%; }
-
-.p17 { top: 2340px; left: 5%; }
-.p18 { top: 2480px; right: 10%; }
-.p19 { top: 2620px; left: 15%; }
-.p20 { top: 2760px; right: 20%; }
-
-.p21 { top: 2920px; left: 10%; }
-.p22 { top: 3060px; right: 15%; }
-.p23 { top: 3200px; left: 20%; }
-.p24 { top: 3340px; right: 25%; }
+/* POSICIONES */
+.p1{top:0;left:5%}
+.p2{top:150px;right:10%}
+.p3{top:300px;left:15%}
+.p4{top:450px;right:20%}
+.p5{top:600px;left:8%}
+.p6{top:750px;right:12%}
+.p7{top:900px;left:18%}
+.p8{top:1050px;right:25%}
+.p9{top:1200px;left:5%}
+.p10{top:1350px;right:10%}
+.p11{top:1500px;left:15%}
+.p12{top:1650px;right:20%}
+.p13{top:1800px;left:10%}
+.p14{top:1950px;right:15%}
+.p15{top:2100px;left:20%}
+.p16{top:2250px;right:25%}
+.p17{top:2400px;left:5%}
+.p18{top:2550px;right:10%}
+.p19{top:2700px;left:15%}
+.p20{top:2850px;right:20%}
+.p21{top:3000px;left:10%}
+.p22{top:3150px;right:15%}
+.p23{top:3300px;left:20%}
+.p24{top:3450px;right:25%}
+.p25{top:3600px;left:8%}
+.p26{top:3750px;right:12%}
+.p27{top:3900px;left:18%}
 
 /* FRASE FINAL */
 .photos-end-text {
   font-family: "Dancing Script", cursive;
   font-size: 2.3rem;
-  margin-top: 100px;
-  margin-bottom: 120px;
+  margin: 120px 0;
   opacity: 0.9;
 }
 
-#content {
-  display: none;
-}
-
-/* ==============================
-   ANIMACIÓN DE TEXTO
-============================== */
+/* ANIMACIONES */
 .animate-text {
   opacity: 0;
   transform: translateY(40px);
@@ -135,21 +148,6 @@ body {
   transform: translateY(0);
 }
 
-/* ==============================
-   TRANSICIÓN SUAVE ENTRE BLOQUES
-============================== */
-#lock {
-  transition: opacity 1.2s ease;
-}
-
-#lock.fade-out {
-  opacity: 0;
-}
-
-/* Contenido entra suavemente */
-#content {
-  opacity: 0;
-  transition: opacity 1.5s ease;
 }
 
 #content.show {
