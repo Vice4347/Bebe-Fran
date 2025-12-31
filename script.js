@@ -1,31 +1,48 @@
 // ==============================
 // CONTADOR
 // ==============================
-const targetDate = new Date(Date.now() + 10000).getTime();
-
+const targetDate = Date.now() + 10000; // 10 segundos
 
 const countdownEl = document.getElementById("countdown");
 const lock = document.getElementById("lock");
 const content = document.getElementById("content");
 
+const animatedText = document.querySelectorAll(".animate-text");
+const photos = document.querySelectorAll(".photo");
+
 function updateCountdown() {
-  const now = new Date().getTime();
+  const now = Date.now();
   const distance = targetDate - now;
 
   if (distance <= 0) {
+    clearInterval(timer);
+
+    // Fade out del lock
     lock.classList.add("fade-out");
 
-setTimeout(() => {
-  lock.style.display = "none";
-  content.style.display = "block";
+    setTimeout(() => {
+      lock.style.display = "none";
 
-  requestAnimationFrame(() => {
-    content.classList.add("show");
-  });
-}, 1200);
+      // Mostrar contenido
+      content.style.display = "block";
 
-clearInterval(timer);
-return;
+      requestAnimationFrame(() => {
+        content.classList.add("show");
+      });
+
+      // Animar textos
+      setTimeout(() => {
+        animatedText.forEach(el => el.classList.add("visible"));
+      }, 400);
+
+      // Animar fotos
+      setTimeout(() => {
+        photos.forEach(photo => photo.classList.add("visible"));
+      }, 900);
+
+    }, 1200);
+
+    return;
   }
 
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -42,47 +59,35 @@ updateCountdown();
 
 
 // ==============================
-// ANIMACIÓN DE FOTOS AL SCROLL
+// MOVIMIENTO SUAVE AL SCROLL
 // ==============================
-const photos = document.querySelectorAll(".photo");
-
 window.addEventListener("scroll", () => {
   photos.forEach((photo, i) => {
+    const dir = i % 2 === 0 ? 1 : -1;
     photo.style.transform =
-      `translateY(${window.scrollY * 0.02 * (i % 2 === 0 ? 1 : -1)}px) scale(1)`;
+      `translateY(${window.scrollY * 0.02 * dir}px) scale(1)`;
   });
 });
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-photos.forEach(photo => observer.observe(photo));
-
 
 // ==============================
-// REPRODUCTOR DE MÚSICA (SEGURO)
+// REPRODUCTOR DE MÚSICA
 // ==============================
 const playBtn = document.getElementById("playBtn");
 const audio = document.getElementById("music");
 
 if (playBtn && audio) {
-  playBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play().catch(err => {
-        console.log("Error al reproducir audio:", err);
-      });
-      playBtn.innerText = "⏸ Pausar música";
-    } else {
-      audio.pause();
-      playBtn.innerText = "▶ Reproducir música";
+  playBtn.addEventListener("click", async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+        playBtn.textContent = "⏸ Pausar música";
+      } else {
+        audio.pause();
+        playBtn.textContent = "▶ Reproducir música";
+      }
+    } catch (e) {
+      console.error("Error reproduciendo audio:", e);
     }
   });
 }
