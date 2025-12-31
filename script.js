@@ -1,3 +1,6 @@
+/* ===============================
+   CUENTA REGRESIVA (10 SEGUNDOS)
+=============================== */
 const targetDate = new Date().getTime() + 10 * 1000;
 
 const countdownEl = document.getElementById("countdown");
@@ -45,7 +48,9 @@ const timer = setInterval(() => {
     `${days} días<br>${hours} horas ${minutes} min ${seconds} seg`;
 }, 1000);
 
-/* Movimiento suave al hacer scroll */
+/* ===============================
+   MOVIMIENTO SUAVE DE FOTOS
+=============================== */
 window.addEventListener("scroll", () => {
   photos.forEach((photo, i) => {
     const dir = i % 2 === 0 ? 1 : -1;
@@ -54,6 +59,9 @@ window.addEventListener("scroll", () => {
   });
 });
 
+/* ===============================
+   REPRODUCTOR DE MÚSICA (BOTÓN)
+=============================== */
 const music = document.getElementById("music");
 const playBtn = document.getElementById("playBtn");
 
@@ -64,19 +72,5 @@ playBtn.addEventListener("click", () => {
   } else {
     music.pause();
     playBtn.textContent = "▶ Reproducir música";
-  }
-});
-
-/* ===== REPRODUCTOR DE MÚSICA ===== */
-const playBtn = document.getElementById("playBtn");
-const music = document.getElementById("music");
-
-playBtn.addEventListener("click", () => {
-  if (music.paused) {
-    music.play();
-    playBtn.textContent = "⏸ Pausar canción";
-  } else {
-    music.pause();
-    playBtn.textContent = "▶ Reproducir canción";
   }
 });
